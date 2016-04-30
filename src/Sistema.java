@@ -12,13 +12,14 @@ public static String passwordB;
 
 public static void main(String args[]) {
     //iniciando o "banco"
-    banco.add(new Pessoa(1, "Marino", "marino@brasilcars.com", "lalala"));
-    banco.add(new Pessoa(2, "Bruno", "bcamera@brasilcars.com", "senhafacil"));
-    banco.add(new Pessoa(3, "Mezeravi", "missinho@brasilcars.com", "tesourasemponta123"));
+    banco.add(new Funcionario(1, "Marino", "marino@brasilcars.com", "lalala", 0));
+    banco.add(new Funcionario(2, "Bruno", "bcamera@brasilcars.com", "senhafacil", 0));
+    banco.add(new Funcionario(3, "Mezeravi", "romilson@brasilcars.com", "tesourasemponta123", 0));
+    banco.add(new Cliente(4, "Jonh Doe", "iammyown@grandfather.com", "grandfatherparadox"));
 
     for(;;) {
         System.out.println("Seja bem vindo ao portal Brasil Cars!");
-        System.out.println("1-Login\n2-Cadastrar");
+        System.out.println("1-Login\n2-Cadastrar\n");
         op = reader.nextInt();
 
         switch (op) {
@@ -55,7 +56,24 @@ private static void login(){
         System.out.println("4 - Cars Manutençao");
         System.out.println("5 - Sair");
         op = reader.nextInt();
-        System.out.println("Voce selecionou " + op);
+
+        switch (op){
+            case 1:
+                System.out.println("Serviço indisponivel no momento");
+                break;
+            case 2:
+                System.out.println("Serviço indisponivel no momento");
+                break;
+            case 3:
+                System.out.println("Serviço indisponivel no momento");
+                break;
+            case 4:
+                System.out.println("Serviço indisponivel no momento");
+                break;
+            case 5: break;
+            default:
+                System.out.println("Opçao invalida");
+        }
     } while (op != 5);
 
 }
