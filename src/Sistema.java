@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Sistema {
 public static ArrayList<Pessoa> banco = new ArrayList<Pessoa>();
+public static ArrayList<Automovel> bancoAuto = new ArrayList<Automovel>();
 public static Scanner reader = new Scanner(System.in);
 
 static int op;
@@ -16,7 +17,8 @@ public static void main(String args[]) {
     banco.add(new Funcionario(2, "Bruno", "bcamera@brasilcars.com", "senhafacil", 0));
     banco.add(new Funcionario(3, "Mezeravi", "romilson@brasilcars.com", "tesourasemponta123", 0));
     banco.add(new Cliente(4, "Jonh Doe", "iammyown@grandfather.com", "grandfatherparadox"));
-
+    bancoAuto.add(new Automovel(1, "Fiat Uno", "Casual", (byte) 2, 2015, "S"));
+    
     for(;;) {
         System.out.println("Seja bem vindo ao portal Brasil Cars!");
         System.out.println("1-Login\n2-Cadastrar\n");
@@ -59,10 +61,12 @@ private static void login(){
 
         switch (op){
             case 1:
-                System.out.println("Serviço indisponivel no momento");
+                System.out.println("Brasil Cars");
+                CarsBrasil.run(banco);
                 break;
             case 2:
-                System.out.println("Serviço indisponivel no momento");
+                System.out.println("Rental Cars");
+                RentalCars.run(bancoAuto);
                 break;
             case 3:
                 System.out.println("Serviço indisponivel no momento");
