@@ -3,3 +3,6 @@
 engenharia.iml
 #arquivos de compilação do java
 out/
+/bin/
+.classpath
+.project
