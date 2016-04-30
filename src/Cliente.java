@@ -12,11 +12,10 @@ public static void create(ArrayList<Pessoa> banco, String name, String email, St
 
 public void visualizarHistóricoAluguel()
 {
-	
 }
 
 public void visualizarHistoricodeCompras()
 {
-	
 }
+
 }
