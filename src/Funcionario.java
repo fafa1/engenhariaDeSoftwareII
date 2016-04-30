@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Funcionario extends Pessoa {
 
 /*0 BrasilC*/
@@ -9,6 +11,10 @@ public int empresa;
 public Funcionario(int id, String name, String email, String password, int empresa) {
     super(id, name, email, password);
     this.empresa = empresa;
+}
+
+public static void create(ArrayList<Pessoa> banco, String name, String email, String password, int empresa){
+    banco.add(new Funcionario(banco.size() + 1, name, email, password, empresa));
 }
 
 public void cadastrarVeiculo()
