@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by hohenheim on 4/29/16.
- */
 public class Pessoa {
     private int id;
     private String name;
