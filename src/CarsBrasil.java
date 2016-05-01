@@ -10,7 +10,7 @@ public static void run(ArrayList<Pessoa> banco){
     do {
         System.out.println("Voce esta logado no modulo Brasil Cars");
         System.out.println("Escolha uma opçao");
-        System.out.println("1 - Brasil Cars");
+        System.out.println("1 - Cadastrar novo funcionário");
         System.out.println("2 - Op indisponivel");
         System.out.println("3 - Op indisponivel");
         System.out.println("4 - Sair");
@@ -58,10 +58,10 @@ private static void createEmployee(ArrayList<Pessoa> banco){
         System.out.print("2- Sales Cars");
         System.out.print("3- Manutencao Cars\n");
         empresaB = reader.nextInt();
-        do {
+        while (empresaB < 0 || empresaB > 3){
             System.out.print("Opçao Invalida: ");
             empresaB = reader.nextInt();
-        } while (empresaB < 0 || empresaB > 3);
+        }
         System.out.print("Confirma? y/n");
         r = reader.next();
     } while (r.equals('n') || r.equals('N'));

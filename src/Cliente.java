@@ -10,12 +10,4 @@ public static void create(ArrayList<Pessoa> banco, String name, String email, St
     banco.add(new Cliente(banco.size() + 1, name, email, password));
 }
 
-public void visualizarHistoricoAluguel()
-{
-}
-
-public void visualizarHistoricodeCompras()
-{
-}
-
 }

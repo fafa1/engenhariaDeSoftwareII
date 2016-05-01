@@ -17,10 +17,6 @@ public static void create(ArrayList<Pessoa> banco, String name, String email, St
     banco.add(new Funcionario(banco.size() + 1, name, email, password, empresa));
 }
 
-public void cadastrarVeiculo()
-{
-}
-
 public int getEmpresa() {
     return empresa;
 }
@@ -41,47 +37,4 @@ public void setManutencaoCars() {
     this.empresa = 3;
 }
 
-public void cadastrarPlanos()
-{
-}
-
-public void visualizarAgendamentos()
-{
-}
-
-public void realizarCheckinDeLocacao()
-{
-}
-
-public void realizarCheckoutDeLocacao()
-{
-}
-
-public void visualizarFeedbacks()
-{
-}
-
-public void cadastarPostos()
-{
-}
-
-public void manterEstoqueVeiculos()
-{
-}
-
-public void cadastrarPlanosdePagamento()
-{
-}
-
-public void venderPecas()
-{
-}
-
-public void visualizarAgendamento()
-{
-}
-
-public void cadastrarPecas()
-{
-}
 }

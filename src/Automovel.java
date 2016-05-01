@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Automovel {
-	
+
 private String modelo;
 private String tipo; // esportivo, van, casual etc
 private byte numero_portas;
