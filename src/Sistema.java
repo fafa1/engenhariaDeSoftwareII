@@ -14,9 +14,10 @@ public static String passwordB;
 public static void main(String args[]) {
     //iniciando o "banco"
     banco.add(new Funcionario(1, "Marino", "marino@brasilcars.com", "lalala", 0));
-    banco.add(new Funcionario(2, "Bruno", "bcamera@brasilcars.com", "senhafacil", 0));
-    banco.add(new Funcionario(3, "Mezeravi", "romilson@brasilcars.com", "tesourasemponta123", 0));
+    banco.add(new Funcionario(2, "Bruno", "bcamera@brasilcars.com", "senhafacil", 1));
+    banco.add(new Funcionario(3, "Romilson", "romilson@brasilcars.com", "tesourasemponta123", 2));
     banco.add(new Cliente(4, "Jonh Doe", "iammyown@grandfather.com", "grandfatherparadox"));
+    banco.add(new Cliente(5, "Acerto", "mizeravi@qtensino.com", "apredeascontaponcotom"));
     bancoAuto.add(new Automovel(1, "Fiat Uno", "Casual", (byte) 2, 2015, "S"));
 
     for(;;) {
@@ -77,7 +78,7 @@ private static void login(){
         } while (op != 4);
     }
     else{
-        switch (logado.getEmpresa()){
+        switch (((Funcionario) logado).getEmpresa()){
             case 0:
                 System.out.println("Brasil Cars");
                 CarsBrasil.run(banco);

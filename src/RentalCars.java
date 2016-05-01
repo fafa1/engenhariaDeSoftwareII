@@ -10,8 +10,8 @@ public class RentalCars {
         do {
             System.out.println("Voce esta logado no modulo Rental Cars");
             System.out.println("Escolha uma opÃ§ao");
-            System.out.println("1 - Cadastrar Veículos");
-            System.out.println("2 - Editar Veículos");
+            System.out.println("1 - Cadastrar Veiculos");
+            System.out.println("2 - Editar Veiculos");
             System.out.println("3 - Op indisponivel");
             System.out.println("4 - Sair");
             op = reader.nextByte();
@@ -48,16 +48,16 @@ public class RentalCars {
         modeloB = reader.nextLine();
         System.out.println("Tipo");
         tipoB = reader.nextLine();
-        System.out.println("Número de Portas");
+        System.out.println("Numero de Portas");
         numero_portasB = reader.nextByte();
-        System.out.println("Ano de Fabricação");
+        System.out.println("Ano de Fabricacao");
         anoB = reader.nextInt();
         System.out.println("Possui Ar Condicionado? S/N");
         arcondicionadoB = reader.nextLine(); //Bug estranho
         arcondicionadoB = reader.nextLine();
 
         Automovel.create(bancoAuto, modeloB, tipoB, numero_portasB, anoB, arcondicionadoB);
-        System.out.print("Automóvel cadastrado com sucesso\n");
+        System.out.print("Automovel cadastrado com sucesso\n");
     }
 
     private static void visualizarVeiculos(ArrayList<Automovel> bancoAuto)
@@ -75,7 +75,7 @@ public class RentalCars {
             System.out.println(i+1 + "-");
             System.out.println("Modelo: " + bancoAuto.get(i).getModelo());
             System.out.println("Tipo: " + bancoAuto.get(i).getTipo());
-            System.out.println("Número de Portas: " + bancoAuto.get(i).getNumero_portas());
+            System.out.println("Numero de Portas: " + bancoAuto.get(i).getNumero_portas());
             System.out.println("Possui Arcondicionado: " + bancoAuto.get(i).getArcondicionado());
             System.out.println("");
         }
@@ -90,7 +90,7 @@ public class RentalCars {
         System.out.println("");
         System.out.println("1- Modelo: " + bancoAuto.get(op-1).getModelo());
         System.out.println("2- Tipo: " + bancoAuto.get(op-1).getTipo());
-        System.out.println("3- Número de Portas: " + bancoAuto.get(op-1).getNumero_portas());
+        System.out.println("3- Numero de Portas: " + bancoAuto.get(op-1).getNumero_portas());
         System.out.println("4- Possui Arcondicionado: " + bancoAuto.get(op-1).getArcondicionado());
         System.out.println("5- Sair");
         System.out.println("O que deseja editar?");
@@ -108,9 +108,9 @@ public class RentalCars {
                 System.out.println("Tipo alterado com sucesso");
                 break;
             case 3:
-                System.out.println("Digite o novo valor para Número de Portas");
+                System.out.println("Digite o novo valor para Numero de Portas");
                 numero_portasB = reader.nextByte();
-                System.out.println("Número de Portas alterado com sucesso");
+                System.out.println("Numero de Portas alterado com sucesso");
                 break;
             case 4:
                 System.out.println("Digite o novo valor para o campo Ar Condicionado");
