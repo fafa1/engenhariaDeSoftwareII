@@ -10,7 +10,7 @@ public class RentalCars {
             System.out.println("Voce esta logado no modulo Rental Cars");
             System.out.println("Escolha uma opçao");
             System.out.println("1 - Cadastrar Veiculos");
-            System.out.println("2 - Editar Veiculos");
+            System.out.println("2 - Visualizar Veiculos");
             System.out.println("3 - Op indisponivel");
             System.out.println("4 - Sair");
             op = reader.nextByte();
@@ -81,7 +81,6 @@ public class RentalCars {
 
         do
         {
-            System.out.println("Qual deseja editar?");
             System.out.println("Para editar algum item digite seu id ou '0' (zero) para sair");
             op = reader.nextInt();
         } while (op > banco.getAutomoveis().size());
