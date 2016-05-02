@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Pessoa {
 private int id;
 private String name;
@@ -27,13 +25,13 @@ public Pessoa (){
     new Pessoa(0, "", "", "");
 }
 
-public static Pessoa login(ArrayList<Pessoa> banco, String email, String password){
+public static Pessoa login(Banco banco, String email, String password){
     int i;
-    for (i = 0; i < banco.size() && !(banco.get(i).getEmail().equals(email)); i++);
-    if (i == banco.size())
+    for (i = 0; i < banco.getPessoas().size() && !(banco.getPessoas().get(i).getEmail().equals(email)); i++);
+    if (i == banco.getPessoas().size())
         return new Pessoa();
-    else if (banco.get(i).getPassword().equals(password))
-        return banco.get(i);
+    else if (banco.getPessoas().get(i).getPassword().equals(password))
+        return banco.getPessoas().get(i);
     return new Pessoa();
 }
 

@@ -1,9 +1,7 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sistema {
-public static ArrayList<Pessoa> banco = new ArrayList<Pessoa>();
-public static ArrayList<Automovel> bancoAuto = new ArrayList<Automovel>();
+public static Banco banco = new Banco();
 public static Scanner reader = new Scanner(System.in);
 
 static int op;
@@ -12,13 +10,6 @@ public static String emailB;
 public static String passwordB;
 
 public static void main(String args[]) {
-    //iniciando o "banco"
-    banco.add(new Funcionario(1, "Marino", "marino@brasilcars.com", "lalala", 0));
-    banco.add(new Funcionario(2, "Bruno", "bcamera@brasilcars.com", "senhafacil", 1));
-    banco.add(new Funcionario(3, "Romilson", "romilson@brasilcars.com", "tesourasemponta123", 2));
-    banco.add(new Cliente(4, "Jonh Doe", "iammyown@grandfather.com", "grandfatherparadox"));
-    banco.add(new Cliente(5, "Acerto", "mizeravi@qtensino.com", "apredeascontaponcotom"));
-    bancoAuto.add(new Automovel(1, "Fiat Uno", "Casual", (byte) 2, 2015, "S"));
 
     for(;;) {
         System.out.println("Seja bem vindo ao portal Brasil Cars!");
@@ -63,7 +54,7 @@ private static void login(){
             switch (op){
                 case 1:
                     System.out.println("Rental Cars");
-                    RentalCars.run(bancoAuto);
+                    RentalCars.run(banco);
                     break;
                 case 2:
                     System.out.println("Serviço indisponivel no momento");
@@ -85,7 +76,7 @@ private static void login(){
                 break;
             case 1:
                 System.out.println("Rental Cars");
-                RentalCars.run(bancoAuto);
+                RentalCars.run(banco);
                 break;
             case 2:
                 System.out.println("Sistema de Sales Cars offline");
@@ -111,7 +102,7 @@ private static void singUp(){
         passwordB = reader.next();
         System.out.print("Confirma? y/n");
         r = reader.next();
-    } while (r.equals('n') || r.equals('N'));
+    } while (r.equals("n") || r.equals("n"));
     Cliente.create(banco, nameB, emailB, passwordB);
 }
 

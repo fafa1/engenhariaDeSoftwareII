@@ -1,9 +1,8 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CarsBrasil {
 
-public static void run(ArrayList<Pessoa> banco){
+public static void run(Banco banco){
     Scanner reader = new Scanner(System.in);
     int op;
 
@@ -33,7 +32,7 @@ public static void run(ArrayList<Pessoa> banco){
     } while (op != 4);
 }
 
-private static void createEmployee(ArrayList<Pessoa> banco){
+private static void createEmployee(Banco banco){
     Scanner reader = new Scanner(System.in);
     int op;
     String r;
@@ -64,7 +63,7 @@ private static void createEmployee(ArrayList<Pessoa> banco){
         }
         System.out.print("Confirma? y/n");
         r = reader.next();
-    } while (r.equals('n') || r.equals('N'));
+    } while (r.equals("n") || r.equals("N"));
     Funcionario.create(banco, nameB, emailB, passwordB, empresaB);
     System.out.print("Funcionario cadastrado com sucesso\n");
 }
