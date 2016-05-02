@@ -1,8 +1,7 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sistema {
-public static ArrayList<Pessoa> banco = new ArrayList<Pessoa>();
+public static Banco banco = new Banco();
 public static Scanner reader = new Scanner(System.in);
 
 static int op;
@@ -11,14 +10,10 @@ public static String emailB;
 public static String passwordB;
 
 public static void main(String args[]) {
-    //iniciando o "banco"
-    banco.add(new Pessoa(1, "Marino", "marino@brasilcars.com", "lalala"));
-    banco.add(new Pessoa(2, "Bruno", "bcamera@brasilcars.com", "senhafacil"));
-    banco.add(new Pessoa(3, "Mezeravi", "missinho@brasilcars.com", "tesourasemponta123"));
 
     for(;;) {
         System.out.println("Seja bem vindo ao portal Brasil Cars!");
-        System.out.println("1-Login\n2-Cadastrar");
+        System.out.println("1-Login\n2-Cadastrar\n");
         op = reader.nextInt();
 
         switch (op) {
@@ -47,18 +42,53 @@ private static void login(){
         logado = Pessoa.login(banco, emailB, passwordB);
     } while (logado.isFail());
 
-    do {
-        System.out.println("Escolha uma opçao");
-        System.out.println("1 - Brasil Cars");
-        System.out.println("2 - Rental Cars");
-        System.out.println("3 - Sales Cars");
-        System.out.println("4 - Cars Manutençao");
-        System.out.println("5 - Sair");
-        op = reader.nextInt();
-        System.out.println("Voce selecionou " + op);
-    } while (op != 5);
+    if( logado instanceof Cliente){
+        do {
+            System.out.println("Escolha uma opçao");
+            System.out.println("1 - Rental Cars");
+            System.out.println("2 - Sales Cars");
+            System.out.println("3 - Cars Manutençao");
+            System.out.println("4 - Sair");
+            op = reader.nextInt();
+
+            switch (op){
+                case 1:
+                    System.out.println("Rental Cars");
+                    System.out.println("Serviço indisponivel no momento");
+                    break;
+                case 2:
+                    System.out.println("Serviço indisponivel no momento");
+                    break;
+                case 3:
+                    System.out.println("Serviço indisponivel no momento");
+                    break;
+                case 4: break;
+                default:
+                    System.out.println("Opçao invalida");
+            }
+        } while (op != 4);
+    }
+    else{
+        switch (((Funcionario) logado).getEmpresa()){
+            case 0:
+                System.out.println("Brasil Cars");
+                CarsBrasil.run(banco);
+                break;
+            case 1:
+                System.out.println("Rental Cars");
+                RentalCars.run(banco);
+                break;
+            case 2:
+                System.out.println("Sistema de Sales Cars offline");
+                break;
+            case 3:
+                System.out.println("Sistema de Cars Manutençao offline");
+                break;
+        }
+    }
 
 }
+
 private static void singUp(){
     Cliente novo;
     String r;
@@ -72,7 +102,8 @@ private static void singUp(){
         passwordB = reader.next();
         System.out.print("Confirma? y/n");
         r = reader.next();
-    } while (r.equals('n') || r.equals('N'));
+    } while (r.equals("n") || r.equals("n"));
     Cliente.create(banco, nameB, emailB, passwordB);
 }
+
 }

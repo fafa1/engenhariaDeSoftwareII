@@ -1,50 +1,38 @@
 public class Funcionario extends Pessoa {
 
-public void cadastrarVeiculo()
-{
+/*0 BrasilC*/
+/*1 RentalC*/
+/*2 SalesC*/
+/*3 ManutencaoC*/
+public int empresa;
+
+public Funcionario(int id, String name, String email, String password, int empresa) {
+    super(id, name, email, password);
+    this.empresa = empresa;
 }
 
-public void cadastrarPlanos()
-{
+public static void create(Banco banco, String name, String email, String password, int empresa){
+    banco.getPessoas().add(new Funcionario(banco.getPessoas().size() + 1, name, email, password, empresa));
 }
 
-public void visualizarAgendamentos()
-{
+public int getEmpresa() {
+    return empresa;
 }
 
-public void realizarCheckinDeLocacao()
-{
+public void setBrasilCars() {
+    this.empresa = 0;
 }
 
-public void realizarCheckoutDeLocacao()
-{
+public void setRentalCars() {
+    this.empresa = 1;
 }
 
-public void visualizarFeedbacks()
-{
+public void setSalesCars() {
+    this.empresa = 2;
 }
 
-public void cadastarPostos()
-{
+public void setManutencaoCars() {
+    this.empresa = 3;
 }
 
-public void manterEstoqueVeiculos()
-{
-}
-
-public void cadastrarPlanosdePagamento()
-{
-}
-
-public void venderPecas()
-{
-}
-
-public void visualizarAgendamento()
-{
-}
-
-public void cadastrarPecas()
-{
-}
 }
