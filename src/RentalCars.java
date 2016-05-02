@@ -9,10 +9,17 @@ public class RentalCars {
         do {
             System.out.println("Voce esta logado no modulo Rental Cars");
             System.out.println("Escolha uma opçao");
-            System.out.println("1 - Cadastrar Veiculos");
-            System.out.println("2 - Visualizar Veiculos");
-            System.out.println("3 - Op indisponivel");
-            System.out.println("4 - Sair");
+            System.out.println("1 - Cadastrar Veiculos");//feito
+            System.out.println("2 - Visualizar Veiculos");//feito + ediçao, falta delecao
+            System.out.println("3 - Cadastrar Postos");
+            System.out.println("4 - Visualizar Postos");
+            System.out.println("5 - Visualizar Feedbacks");
+            System.out.println("6 - Visualizar Agendamentos");
+            System.out.println("7 - Realizar Checkin de Locaçao");
+            System.out.println("8 - Realizar Checkout de Locaçao");
+            System.out.println("9 - Cadastrar Planos de Quilometragem");
+            System.out.println("10 - Visualizar Historio de Aluguel");
+            System.out.println("11 - Sair");
             op = reader.nextByte();
 
             switch (op){
@@ -20,16 +27,21 @@ public class RentalCars {
                     cadastrarVeiculos(banco);
                     break;
                 case 2:
-                    visualizarVeiculos(banco);;
+                    visualizarVeiculos(banco);
                     break;
                 case 3:
                     System.out.println("Serviço indisponivel no momento");
                     break;
-                case 4: break;
+                case 4:
+                    System.out.println("Serviço indisponivel no momento");
+                    break;
+                case 11:
+                    break;
                 default:
-                        break;
+                    System.out.println("Serviço indisponivel no momento");
+                    break;
             }
-        } while (op != 4);
+        } while (op != 11);
     }
 
     private static void cadastrarVeiculos(Banco banco)
