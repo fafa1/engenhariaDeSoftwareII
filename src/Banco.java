@@ -4,6 +4,7 @@ public class Banco {
 
 public ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 public ArrayList<Automovel> automoveis = new ArrayList<Automovel>();
+public ArrayList<Posto> postos = new ArrayList<Posto>();
 public ArrayList<Locacao> locacoes = new ArrayList<Locacao>();
 public ArrayList<PlanoLocacao> planosLocacoes= new ArrayList<PlanoLocacao>();
 public ArrayList<Feedback> feedbacks = new ArrayList<Feedback>();
@@ -16,6 +17,7 @@ public Banco() {
     this.pessoas.add(new Cliente(4, "Jonh Doe", "iammyown@grandfather.com", "grandfatherparadox"));
     this.pessoas.add(new Cliente(5, "Acerto", "mizeravi@qtensino.com", "apredeascontaponcotom"));
     this.automoveis.add(new Automovel(1, "Fiat Uno", "Casual", (byte) 2, 2015, "S"));
+    this.postos.add(new Posto(1, "Unidade Central", "Ondina", "24 horas"));
 }
 
 public ArrayList<Pessoa> getPessoas() {
@@ -32,6 +34,14 @@ public ArrayList<Automovel> getAutomoveis() {
 
 public void setAutomoveis(ArrayList<Automovel> automoveis) {
     this.automoveis = automoveis;
+}
+
+public ArrayList<Posto> getPostos() {
+    return postos;
+}
+
+public void setPostos(ArrayList<Posto> postos) {
+    this.postos = postos;
 }
 
 public ArrayList<Locacao> getLocacoes() {
@@ -57,5 +67,6 @@ public ArrayList<Feedback> getFeedbacks() {
 public void setFeedbacks(ArrayList<Feedback> feedbacks) {
     this.feedbacks = feedbacks;
 }
+
 
 }

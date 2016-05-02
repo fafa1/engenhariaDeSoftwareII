@@ -30,10 +30,10 @@ public class RentalCars {
                     visualizarVeiculos(banco);
                     break;
                 case 3:
-                    System.out.println("Serviço indisponivel no momento");
+                    cadastrarPostos(banco);
                     break;
                 case 4:
-                    System.out.println("Serviço indisponivel no momento");
+                    visualizarPostos(banco);
                     break;
                 case 11:
                     break;
@@ -98,6 +98,89 @@ public class RentalCars {
         } while (op > banco.getAutomoveis().size());
         if (op != 0) alterarAutomovel(banco, op);
     }
+
+    public static void cadastrarPostos(Banco banco) {
+        Scanner reader = new Scanner(System.in);
+        String nameB; //Unidade Central, Unidade Orla, Unidade lalala
+        String bairroB;
+        String funcionamentoB; //24 horas, 12 horas, fds
+
+        Posto novo;
+
+        System.out.println("Digite o nome da nova unidade");
+        nameB = reader.nextLine();
+        System.out.println("Digite o nome do Bairro");
+        bairroB = reader.nextLine();
+        System.out.println("Descreva o periodo de funcionamento (24 horas, 12 horas, fds...)");
+        funcionamentoB = reader.nextLine();
+
+        Posto.create(banco, nameB, bairroB, funcionamentoB);
+        System.out.print("Automovel cadastrado com sucesso\n");
+    }
+    public static void visualizarPostos(Banco banco) {
+        int op;
+        Scanner reader = new Scanner(System.in);
+        String nameB;
+        String bairroB;
+        String funcionamentoB;
+
+        for (int i = 0; i < banco.getPostos().size(); i++) {
+            System.out.println(i + 1 + "-");
+            System.out.println("Nome: " + banco.getPostos().get(i).getName());
+            System.out.println("Bairro: " + banco.getPostos().get(i).getBairro());
+            System.out.println("Funcionamento: " + banco.getPostos().get(i).getFuncionamento());
+            System.out.println("");
+        }
+
+        do {
+            System.out.println("Para editar algum item digite seu id ou '0' (zero) para sair");
+            op = reader.nextInt();
+        } while (op > banco.getPostos().size());
+        if (op != 0) alterarPosto(banco, op);
+    }
+
+    public static void alterarPosto(Banco banco, int id) {
+        Scanner reader = new Scanner(System.in);
+        int op;
+        String nameB;
+        String bairroB;
+        String funcionamentoB;
+
+        System.out.println("");
+        System.out.println("1- Nome: " + banco.postos.get(id).getName());
+        System.out.println("2- Bairro: " + banco.postos.get(id).getBairro());
+        System.out.println("3- Funcionamento: " + banco.postos.get(id).getFuncionamento());
+        System.out.println("4- Sair");
+        System.out.println("O que deseja editar?");
+        op = reader.nextInt();
+
+        switch (op) {
+            case 1:
+                System.out.println("Digite o novo valor para Nome");
+                nameB = reader.nextLine();
+                banco.postos.get(id).setName(nameB);
+                System.out.println("Modelo alterado com sucesso");
+                break;
+            case 2:
+                System.out.println("Digite o novo valor para Bairro");
+                bairroB = reader.nextLine();
+                banco.postos.get(id).setBairro(bairroB);
+                System.out.println("Tipo alterado com sucesso");
+                break;
+            case 3:
+                System.out.println("Digite o novo valor para Funcionamento (24 horas, 12 horas, fds...)");
+                funcionamentoB = reader.nextLine();
+                banco.postos.get(id).setFuncionamento(funcionamentoB);
+                System.out.println("Numero de Portas alterado com sucesso");
+                break;
+            case 4:
+                break;
+            default:
+                break;
+
+        }
+    }
+
 
     public static void alterarAutomovel(Banco banco, int id){
         Scanner reader = new Scanner(System.in);

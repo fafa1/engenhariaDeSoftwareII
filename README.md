@@ -1,11 +1,13 @@
 Repositório Destinado ao trabalho de Engenharia de Software II
 =====================
 
-* Wireframes `docs/wireframes`
-* Modelos BPMN `docs/bpmn`
+* UseCases `docs/img`
+* Documentação do projeto`docs/`
 
 ####Team
 * Bruno Camera
 * Marino Hohenheim
 * Romilson Santana
 
+####2a Interação
+* Andre's Team
