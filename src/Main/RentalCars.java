@@ -1,3 +1,8 @@
+package Main;
+
+import models.*;
+import database.Banco;
+
 import java.util.Scanner;
 
 public class RentalCars {
@@ -68,7 +73,7 @@ public class RentalCars {
         arcondicionadoB = reader.nextLine();
 
         Automovel.create(banco, modeloB, tipoB, numero_portasB, anoB, arcondicionadoB);
-        System.out.print("Automovel cadastrado com sucesso\n");
+        System.out.print("models.Automovel cadastrado com sucesso\n");
     }
 
     private static void visualizarVeiculos(Banco banco)
@@ -115,7 +120,7 @@ public class RentalCars {
         funcionamentoB = reader.nextLine();
 
         Posto.create(banco, nameB, bairroB, funcionamentoB);
-        System.out.print("Automovel cadastrado com sucesso\n");
+        System.out.print("models.Automovel cadastrado com sucesso\n");
     }
     public static void visualizarPostos(Banco banco) {
         int op;

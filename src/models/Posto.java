@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Posto {
 private int id;
 private String name;

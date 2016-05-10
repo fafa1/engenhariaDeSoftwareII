@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Funcionario extends Pessoa {
 
 /*0 BrasilC*/

@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Automovel {
 
 private String modelo;

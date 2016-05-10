@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Pessoa {
 private int id;
 private String name;

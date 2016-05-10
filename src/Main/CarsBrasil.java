@@ -1,3 +1,8 @@
+package Main;
+
+import models.Funcionario;
+import database.Banco;
+
 import java.util.Scanner;
 
 public class CarsBrasil {
@@ -65,6 +70,6 @@ private static void createEmployee(Banco banco){
         r = reader.next();
     } while (r.equals("n") || r.equals("N"));
     Funcionario.create(banco, nameB, emailB, passwordB, empresaB);
-    System.out.print("Funcionario cadastrado com sucesso\n");
+    System.out.print("models.Funcionario cadastrado com sucesso\n");
 }
 }

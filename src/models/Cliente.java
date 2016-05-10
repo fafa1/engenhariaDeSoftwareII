@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Cliente extends Pessoa{
 
 public Cliente(int id, String name, String email, String password) {

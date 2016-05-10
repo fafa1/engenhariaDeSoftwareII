@@ -1,3 +1,7 @@
+package database;
+
+import models.*;
+
 import java.util.ArrayList;
 
 public class Banco {
