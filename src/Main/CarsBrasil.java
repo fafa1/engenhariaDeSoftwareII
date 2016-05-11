@@ -70,6 +70,6 @@ private static void createEmployee(Banco banco){
         r = reader.next();
     } while (r.equals("n") || r.equals("N"));
     Funcionario.create(banco, nameB, emailB, passwordB, empresaB);
-    System.out.print("models.Funcionario cadastrado com sucesso\n");
+    System.out.print("Funcionario cadastrado com sucesso\n");
 }
 }

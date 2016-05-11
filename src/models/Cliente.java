@@ -9,7 +9,8 @@ public Cliente(int id, String name, String email, String password) {
 }
 
 public static void create(Banco banco, String name, String email, String password){
-    banco.getPessoas().add(new Cliente(banco.getPessoas().size() + 1, name, email, password));
+    banco.getPessoas().add(new Cliente(banco.getLastInsertPessoa() + 1, name, email, password));
+    banco.incLastInsertPessoa();
 }
 
 }
