@@ -62,7 +62,8 @@ private static void login(){
                     System.out.println("Serviço indisponivel no momento");
                     break;
                 case 2:
-                    System.out.println("Serviço indisponivel no momento");
+                    System.out.println("Bem vindo a SalesCars");
+                    SalesCars.runClient(banco, (Cliente)logado);                    
                     break;
                 case 3:
                     System.out.println("Serviço indisponivel no momento");
@@ -85,6 +86,7 @@ private static void login(){
                 break;
             case 2:
                 System.out.println("Main.Sistema de Sales Cars offline");
+                SalesCars.runFunc(banco, (Funcionario)logado);
                 break;
             case 3:
                 System.out.println("Main.Sistema de Cars Manutençao offline");
