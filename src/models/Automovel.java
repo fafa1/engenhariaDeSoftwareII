@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Automovel {
 
 private String modelo;
@@ -12,11 +16,22 @@ public Automovel (int id, String modelo, String tipo,byte numero_portas,int ano,
 	this.modelo = modelo;
 	this.tipo = tipo;
 	this.numero_portas = numero_portas;
+    this.ano = ano;
 	this.arcondicionado = arcondicionado;
 }
 
 public static void create(Banco banco, String modelo, String tipo, byte numero_portas, int ano, String arcondicionado){
-    banco.getAutomoveis().add(new Automovel(banco.getAutomoveis().size() + 1, modelo, tipo, numero_portas, ano, arcondicionado));
+    banco.getAutomoveis().add(new Automovel(banco.getLastInsertAutomovel() + 1, modelo, tipo, numero_portas, ano, arcondicionado));
+    banco.incLastInsertAutomovel();
+}
+
+public static void edit(Banco banco, Automovel me){
+    int i;
+    for (i = 0; i < banco.getAutomoveis().size() && (banco.getAutomoveis().get(i).getId() != me.getId()); i++);
+    if (i == banco.getAutomoveis().size())
+        System.out.println("nao acho!");
+    else
+        banco.getAutomoveis().set(i, me);
 }
 
 public int getId() {
@@ -50,6 +65,10 @@ public void setNumero_portas(byte numero_portas) {
 public byte getNumero_portas() {
     return numero_portas;
 }
+
+public int getAno() { return ano; }
+
+public void setAno(int ano) { this.ano = ano; }
 
 public void setArcondicionado(String arcondicionado) {
     this.arcondicionado = arcondicionado;

@@ -1,3 +1,8 @@
+package Main;
+
+import models.*;
+import database.Banco;
+
 import java.util.Scanner;
 
 public class Sistema {
@@ -79,10 +84,10 @@ private static void login(){
                 RentalCars.run(banco);
                 break;
             case 2:
-                System.out.println("Sistema de Sales Cars offline");
+                System.out.println("Main.Sistema de Sales Cars offline");
                 break;
             case 3:
-                System.out.println("Sistema de Cars Manutençao offline");
+                System.out.println("Main.Sistema de Cars Manutençao offline");
                 break;
         }
     }

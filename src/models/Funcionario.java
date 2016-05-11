@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Funcionario extends Pessoa {
 
 /*0 BrasilC*/
@@ -12,7 +16,8 @@ public Funcionario(int id, String name, String email, String password, int empre
 }
 
 public static void create(Banco banco, String name, String email, String password, int empresa){
-    banco.getPessoas().add(new Funcionario(banco.getPessoas().size() + 1, name, email, password, empresa));
+    banco.getPessoas().add(new Funcionario(banco.getLastInsertPessoa() + 1, name, email, password, empresa));
+    banco.incLastInsertPessoa();
 }
 
 public int getEmpresa() {

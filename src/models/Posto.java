@@ -1,3 +1,7 @@
+package models;
+
+import database.Banco;
+
 public class Posto {
 private int id;
 private String name;
@@ -12,7 +16,17 @@ public Posto(int id, String name, String bairro, String funcionamento) {
 }
 
 public static void create(Banco banco, String name, String bairro, String funcionamento){
-    banco.postos.add(new Posto(banco.getPostos().size() + 1, name, bairro, funcionamento));
+    banco.postos.add(new Posto(banco.getLastInsertPosto() + 1, name, bairro, funcionamento));
+    banco.incLastInsertPosto();
+}
+
+public static void edit(Banco banco, Posto me){
+    int i;
+    for (i = 0; i < banco.getPostos().size() && (banco.getPostos().get(i).getId() != me.getId()); i++);
+    if (i == banco.getPostos().size())
+        System.out.println("nao acho!");
+    else
+        banco.getPostos().set(i, me);
 }
 
 public int getId() {

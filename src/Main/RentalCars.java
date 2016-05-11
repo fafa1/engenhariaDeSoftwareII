@@ -1,3 +1,8 @@
+package Main;
+
+import models.*;
+import database.Banco;
+
 import java.util.Scanner;
 
 public class RentalCars {
@@ -75,15 +80,10 @@ public class RentalCars {
     {
         int op;
         Scanner reader = new Scanner(System.in);
-        String modeloB;
-        String tipoB; // esportivo, van, casual etc
-        byte numero_portasB;
-        int	anoB;
-        String arcondicionadoB;
 
         for (int i = 0; i < banco.getAutomoveis().size(); i++)
         {
-            System.out.println(i+1 + "-");
+            System.out.println("Id: " + (i+1) + "-");
             System.out.println("Modelo: " + banco.getAutomoveis().get(i).getModelo());
             System.out.println("Tipo: " + banco.getAutomoveis().get(i).getTipo());
             System.out.println("Numero de Portas: " + banco.getAutomoveis().get(i).getNumero_portas());
@@ -96,7 +96,7 @@ public class RentalCars {
             System.out.println("Para editar algum item digite seu id ou '0' (zero) para sair");
             op = reader.nextInt();
         } while (op > banco.getAutomoveis().size());
-        if (op != 0) alterarAutomovel(banco, op);
+        if (op != 0) alterarAutomovel(banco, banco.getAutomoveis().get(op-1));
     }
 
     public static void cadastrarPostos(Banco banco) {
@@ -117,15 +117,13 @@ public class RentalCars {
         Posto.create(banco, nameB, bairroB, funcionamentoB);
         System.out.print("Automovel cadastrado com sucesso\n");
     }
+
     public static void visualizarPostos(Banco banco) {
         int op;
         Scanner reader = new Scanner(System.in);
-        String nameB;
-        String bairroB;
-        String funcionamentoB;
 
         for (int i = 0; i < banco.getPostos().size(); i++) {
-            System.out.println(i + 1 + "-");
+            System.out.println("Id: " + (i+1) + "-");
             System.out.println("Nome: " + banco.getPostos().get(i).getName());
             System.out.println("Bairro: " + banco.getPostos().get(i).getBairro());
             System.out.println("Funcionamento: " + banco.getPostos().get(i).getFuncionamento());
@@ -136,10 +134,10 @@ public class RentalCars {
             System.out.println("Para editar algum item digite seu id ou '0' (zero) para sair");
             op = reader.nextInt();
         } while (op > banco.getPostos().size());
-        if (op != 0) alterarPosto(banco, op);
+        if (op != 0) alterarPosto(banco, banco.getPostos().get(op-1));
     }
 
-    public static void alterarPosto(Banco banco, int id) {
+    public static void alterarPosto(Banco banco, Posto obj) {
         Scanner reader = new Scanner(System.in);
         int op;
         String nameB;
@@ -147,9 +145,9 @@ public class RentalCars {
         String funcionamentoB;
 
         System.out.println("");
-        System.out.println("1- Nome: " + banco.postos.get(id).getName());
-        System.out.println("2- Bairro: " + banco.postos.get(id).getBairro());
-        System.out.println("3- Funcionamento: " + banco.postos.get(id).getFuncionamento());
+        System.out.println("1- Nome: " + obj.getName());
+        System.out.println("2- Bairro: " + obj.getBairro());
+        System.out.println("3- Funcionamento: " + obj.getFuncionamento());
         System.out.println("4- Sair");
         System.out.println("O que deseja editar?");
         op = reader.nextInt();
@@ -157,20 +155,25 @@ public class RentalCars {
         switch (op) {
             case 1:
                 System.out.println("Digite o novo valor para Nome");
+                nameB = reader.nextLine();//esta pedindo duaz vezes pq esta vindo algum lixo
+                // no buffer e faz o primeiro recever "", nao encontrei na documentaçao como limpar, antes de ler
+                //e curiosamente so da esse bug com string
                 nameB = reader.nextLine();
-                banco.postos.get(id).setName(nameB);
+                obj.setName(nameB);
                 System.out.println("Modelo alterado com sucesso");
                 break;
             case 2:
                 System.out.println("Digite o novo valor para Bairro");
                 bairroB = reader.nextLine();
-                banco.postos.get(id).setBairro(bairroB);
+                bairroB = reader.nextLine();
+                obj.setBairro(bairroB);
                 System.out.println("Tipo alterado com sucesso");
                 break;
             case 3:
                 System.out.println("Digite o novo valor para Funcionamento (24 horas, 12 horas, fds...)");
                 funcionamentoB = reader.nextLine();
-                banco.postos.get(id).setFuncionamento(funcionamentoB);
+                funcionamentoB = reader.nextLine();
+                obj.setFuncionamento(funcionamentoB);
                 System.out.println("Numero de Portas alterado com sucesso");
                 break;
             case 4:
@@ -179,10 +182,11 @@ public class RentalCars {
                 break;
 
         }
+        Posto.edit(banco, obj);
     }
 
 
-    public static void alterarAutomovel(Banco banco, int id){
+    public static void alterarAutomovel(Banco banco, Automovel obj){
         Scanner reader = new Scanner(System.in);
         int op;
         String modeloB;
@@ -192,10 +196,10 @@ public class RentalCars {
         String arcondicionadoB;
 
         System.out.println("");
-        System.out.println("1- Modelo: " + banco.automoveis.get(id-1).getModelo());
-        System.out.println("2- Tipo: " + banco.automoveis.get(id-1).getTipo());
-        System.out.println("3- Numero de Portas: " + banco.automoveis.get(id-1).getNumero_portas());
-        System.out.println("4- Possui Arcondicionado: " + banco.automoveis.get(id-1).getArcondicionado());
+        System.out.println("1- Modelo: " + obj.getModelo());
+        System.out.println("2- Tipo: " + obj.getTipo());
+        System.out.println("3- Numero de Portas: " + obj.getNumero_portas());
+        System.out.println("4- Possui Arcondicionado: " + obj.getArcondicionado());
         System.out.println("5- Sair");
         System.out.println("O que deseja editar?");
         op = reader.nextInt();
@@ -204,26 +208,26 @@ public class RentalCars {
             case 1:
                 System.out.println("Digite o novo valor para Modelo");
                 modeloB = reader.nextLine();
-                banco.automoveis.get(id-1).setModelo(modeloB);
+                obj.setModelo(modeloB);
                 System.out.println("Modelo alterado com sucesso");
                 break;
             case 2:
                 System.out.println("Digite o novo valor para Tipo");
                 tipoB = reader.nextLine();
-                banco.automoveis.get(id-1).setTipo(tipoB);
+                obj.setTipo(tipoB);
                 System.out.println("Tipo alterado com sucesso");
                 break;
             case 3:
                 System.out.println("Digite o novo valor para Numero de Portas");
                 numero_portasB = reader.nextByte();
-                banco.automoveis.get(id-1).setNumero_portas(numero_portasB);
+                obj.setNumero_portas(numero_portasB);
                 System.out.println("Numero de Portas alterado com sucesso");
                 break;
             case 4:
                 System.out.println("Digite o novo valor para o campo Ar Condicionado");
                 arcondicionadoB = reader.nextLine(); //limpando o buffer c POG
                 arcondicionadoB = reader.nextLine();
-                banco.automoveis.get(id-1).setArcondicionado(arcondicionadoB);
+                obj.setArcondicionado(arcondicionadoB);
                 System.out.println("Ar Condicionado alterado com sucesso");
                 break;
             case 5: break;
@@ -231,6 +235,7 @@ public class RentalCars {
                 break;
 
         }
+        Automovel.edit(banco, obj);
     }
 
     public void cadastrarPlanosAluguel()
@@ -250,10 +255,6 @@ public class RentalCars {
     }
 
     public void visualizarFeedbacks()
-    {
-    }
-
-    public void cadastarPostos()
     {
     }
 
