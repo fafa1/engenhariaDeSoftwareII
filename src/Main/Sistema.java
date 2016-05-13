@@ -49,10 +49,10 @@ private static void login(){
 
     if( logado instanceof Cliente){
         do {
-            System.out.println("Escolha uma op��ao");
+            System.out.println("Escolha uma opcao");
             System.out.println("1 - Rental Cars");
             System.out.println("2 - Sales Cars");
-            System.out.println("3 - Cars Manuten��ao");
+            System.out.println("3 - Cars Manutenutencao");
             System.out.println("4 - Sair");
             op = reader.nextInt();
 
