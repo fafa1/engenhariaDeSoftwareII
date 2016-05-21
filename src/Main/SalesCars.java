@@ -25,7 +25,7 @@ public class SalesCars {
             System.out.println("7 - Realizar Checkin de Loca��ao");
             System.out.println("8 - Realizar Checkout de Loca��ao");
             System.out.println("9 - Cadastrar Planos de Quilometragem");
-            System.out.println("10 - Visualizar Historio de Aluguel");
+            System.out.println("10 - Visualizar Historico de Aluguel");
             System.out.println("11 - Sair");
             op = reader.nextByte();
 
