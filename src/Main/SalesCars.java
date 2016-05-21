@@ -86,28 +86,32 @@ public class SalesCars {
         do {
             System.out.println("Voce esta logado no modulo Sales Cars");
             System.out.println("Escolha uma opcao");
-            System.out.println("1 - Consultar Postos");//nao precisa
+            System.out.println("1 - Consultar Postos");
             System.out.println("2 - Consultar Planos");
             System.out.println("3 - Consultar Veiculos");
-            System.out.println("4 - Comprar vbeiculo");
+            System.out.println("4 - Comprar Veiculo");
             System.out.println("5 - Consultar Planos");
             System.out.println("6 - Historico de compras");
             System.out.println("7 - Escrever feedback");
-            System.out.println("8 - Agendar Test Drive");//nao precisa implementar
+            System.out.println("8 - Agendar Test Drive");
             System.out.println("9 - Sair");
             op = reader.nextByte();
 
             switch (op){
                 case 1:
+                	visualizarPostos(banco);
                     break;
                 case 2:
                     break;
                 case 3:
+                	visualizarVeiculos(banco) ;
                     break;
                 case 4:
                     break;
                 case 7:
                 	escreverFeedback(banco, client.getId());	
+                    break;
+                case 8:
                     break;
                 case 9:
                     break;

@@ -64,6 +64,7 @@ private static void login(){
                     break;
                 case 2:
                     System.out.println("Bem vindo a SalesCars");
+                    //SalesCars.runFunc(banco, funcionario)
                     SalesCars.runClient(banco, (Cliente)logado);                    
                     break;
                 case 3:
