@@ -86,37 +86,48 @@ public class SalesCars {
         do {
             System.out.println("Voce esta logado no modulo Sales Cars");
             System.out.println("Escolha uma opcao");
-            System.out.println("1 - Consultar Postos");
-            System.out.println("2 - Consultar Planos");
-            System.out.println("3 - Consultar Veiculos");
-            System.out.println("4 - Comprar Veiculo");
-            System.out.println("5 - Consultar Planos");
+            System.out.println("1 - Cadastrar Veiculos");
+            System.out.println("2 - Cadastrar Postos");
+            System.out.println("3 - Consultar Postos/Alterar Postos");
+            System.out.println("4 - Consultar Veiculos/Alterar Veiculos");
+            System.out.println("5 - Alugar Veiculo");
             System.out.println("6 - Historico de compras");
             System.out.println("7 - Escrever feedback");
             System.out.println("8 - Agendar Test Drive");
             System.out.println("9 - Sair");
+            //System.out.println("12 - Consultar Planos");
             op = reader.nextByte();
 
             switch (op){
                 case 1:
-                	visualizarPostos(banco);
+                	cadastrarVeiculos(banco) ;
                     break;
                 case 2:
+                	cadastrarPostos(banco) ;
                     break;
                 case 3:
-                	visualizarVeiculos(banco) ;
+                	visualizarPostos(banco);
                     break;
                 case 4:
+                	visualizarVeiculos(banco) ;
+                    break;
+                case 5:
+                	
+                    break;
+                case 6:
+                	
                     break;
                 case 7:
                 	escreverFeedback(banco, client.getId());	
                     break;
+                    
                 case 8:
+                		
                     break;
                 case 9:
                     break;
                 default:
-                    System.out.println("Servicoo indisponivel no momento");
+                    System.out.println("Servico indisponivel no momento");
                     break;
             }
         } while (op != 9);
