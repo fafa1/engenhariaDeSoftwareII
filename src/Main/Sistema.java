@@ -59,7 +59,8 @@ private static void login(){
             switch (op){
                 case 1:
                     System.out.println("Rental Cars");
-                    System.out.println("Servicoo indisponivel no momento");
+                    RentalCars.run(banco) ;
+                    //System.out.println("Servicoo indisponivel no momento");
                     break;
                 case 2:
                     System.out.println("Bem vindo a SalesCars");
