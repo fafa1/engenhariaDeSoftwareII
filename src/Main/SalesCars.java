@@ -95,7 +95,6 @@ public class SalesCars {
 			System.out.println("7 - Escrever feedback");
 			System.out.println("8 - Agendar Test Drive");
 			System.out.println("9 - Sair");
-			//System.out.println("12 - Consultar Planos");
 			op = reader.nextByte();
 
 			switch (op){
@@ -161,12 +160,9 @@ public class SalesCars {
 	{
 		Scanner reader = new Scanner(System.in);
 		String text;
-
 		Feedback novo;
-
 		System.out.println("Escreva seu Feedback");
 		text = reader.nextLine();
-
 		Feedback.create(banco,text, cliente);
 		System.out.print("Feedback OK\n");
 	}
@@ -177,7 +173,7 @@ public class SalesCars {
 	{
 		Scanner reader = new Scanner(System.in);
 		String modeloB;
-		String tipoB; // esportivo, van, casual etc
+		String tipoB; 
 		byte numero_portasB;
 		int	anoB;
 		String arcondicionadoB;
@@ -193,7 +189,7 @@ public class SalesCars {
 		System.out.println("Ano de Fabricacao");
 		anoB = reader.nextInt();
 		System.out.println("Possui Ar Condicionado? S/N");
-		arcondicionadoB = reader.nextLine(); //limpando o buffer c POG
+		arcondicionadoB = reader.nextLine(); 
 		arcondicionadoB = reader.nextLine();
 
 		Automovel.create(banco, modeloB, tipoB, numero_portasB, anoB, arcondicionadoB);
@@ -227,7 +223,6 @@ public class SalesCars {
 	private static void venderVeiculos(Banco banco)
 	{	
 		System.out.println("Bem Vindo ao departamento de vendas de veículos da Sales Cars");
-		System.out.println("Indique número do ID do Veiculo que você gostaria de alugar:");
 
 
 		int op;
@@ -242,10 +237,11 @@ public class SalesCars {
 			System.out.println("Possui Arcondicionado: " + banco.getAutomoveis().get(i).getArcondicionado());
 			System.out.println("");
 		}
+		
+		System.out.println("Indique número do ID do Veiculo que você gostaria de alugar:");
 
 		do
 		{
-			//System.out.println("Para editar algum item digite seu id ou '0' (zero) para sair");
 			op = reader.nextInt();
 		} while (op > banco.getAutomoveis().size());
 		if (op != 0) {
@@ -257,9 +253,9 @@ public class SalesCars {
 
 	public static void cadastrarPostos(Banco banco) {
 		Scanner reader = new Scanner(System.in);
-		String nameB; //Unidade Central, Unidade Orla, Unidade lalala
+		String nameB; 
 		String bairroB;
-		String funcionamentoB; //24 horas, 12 horas, fds
+		String funcionamentoB; 
 		Posto novo;
 		System.out.println("Digite o nome da nova unidade");
 		nameB = reader.nextLine();
@@ -309,9 +305,7 @@ public class SalesCars {
 		switch (op) {
 		case 1:
 			System.out.println("Digite o novo valor para Nome");
-			nameB = reader.nextLine();//esta pedindo duaz vezes pq esta vindo algum lixo
-			// no buffer e faz o primeiro recever "", nao encontrei na documenta��ao como limpar, antes de ler
-			//e curiosamente so da esse bug com string
+			nameB = reader.nextLine();
 			nameB = reader.nextLine();
 			obj.setName(nameB);
 			System.out.println("Modelo alterado com sucesso");
@@ -344,7 +338,7 @@ public class SalesCars {
 		Scanner reader = new Scanner(System.in);
 		int op;
 		String modeloB;
-		String tipoB; // esportivo, van, casual etc
+		String tipoB; 
 		byte numero_portasB;
 		int	anoB;
 		String arcondicionadoB;
@@ -379,7 +373,7 @@ public class SalesCars {
 			break;
 		case 4:
 			System.out.println("Digite o novo valor para o campo Ar Condicionado");
-			arcondicionadoB = reader.nextLine(); //limpando o buffer c POG
+			arcondicionadoB = reader.nextLine();
 			arcondicionadoB = reader.nextLine();
 			obj.setArcondicionado(arcondicionadoB);
 			System.out.println("Ar Condicionado alterado com sucesso");
@@ -392,7 +386,7 @@ public class SalesCars {
 		Automovel.edit(banco, obj);
 	}
 
-	//Tag: Quando a porta é -1, o carro foi vendido
+	//Tag: Quando o numero de portas é -1, significa que o carro foi vendido
 	public static void removerAutomovel(Banco banco, Automovel obj){
 		byte exemplo = -1 ;
 		obj.setModelo("");
@@ -418,30 +412,6 @@ public class SalesCars {
 	}
 
 
-	/*
-public void cadastrarPlanosAluguel()
-{
-}
-
-public void visualizarAgendamentos()
-{
-}
-
-public void realizarCheckinDeLocacao()
-{
-}
-
-public void realizarCheckoutDeLocacao()
-{
-}
-
-public void visualizarFeedbacks()
-{
-}
-
-public void visualizarAgendamento()
-{
-}
-	 */	    
+   
 }
 
