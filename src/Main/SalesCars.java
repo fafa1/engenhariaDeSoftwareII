@@ -91,7 +91,7 @@ public class SalesCars {
             System.out.println("3 - Consultar Postos/Alterar Postos");
             System.out.println("4 - Consultar Veiculos/Alterar Veiculos");
             System.out.println("5 - Vender Veiculo");
-            System.out.println("6 - Historico de compras");
+            System.out.println("6 - Carros Disponíveis");
             System.out.println("7 - Escrever feedback");
             System.out.println("8 - Agendar Test Drive");
             System.out.println("9 - Sair");
@@ -115,13 +115,13 @@ public class SalesCars {
                 	venderVeiculos(banco) ;
                     break;
                 case 6:
-                	
+                	carrosDisponiveis(banco) ;
                     break;
                 case 7:
                 	escreverFeedback(banco, client.getId());	
                     break;
                 case 8:
-                		
+                	agendarTesteDrive(banco, client.getId());	
                     break;
                 case 9:
                     break;
@@ -131,6 +131,31 @@ public class SalesCars {
             }
         } while (op != 9);
     }
+	
+	
+	 private static void carrosDisponiveis(Banco banco)
+	    {
+		 	System.out.println("Os carros dísponiveis para na SalesCars são: ");
+	        int op;
+	        Scanner reader = new Scanner(System.in);
+
+	        for (int i = 0; i < banco.getAutomoveis().size(); i++)
+	        {
+	            System.out.println("Id: " + (i+1) + "-");
+	            System.out.println("Modelo: " + banco.getAutomoveis().get(i).getModelo());
+	            System.out.println("Tipo: " + banco.getAutomoveis().get(i).getTipo());
+	            System.out.println("Numero de Portas: " + banco.getAutomoveis().get(i).getNumero_portas());
+	            System.out.println("Possui Arcondicionado: " + banco.getAutomoveis().get(i).getArcondicionado());
+	            System.out.println("");
+	        }
+	        
+	        do
+	        {
+	            System.out.println("Pressione '0' (zero) para sair");
+	            op = reader.nextInt();
+	        } while (op > banco.getAutomoveis().size());
+	    }
+	    
 
     private static void escreverFeedback(Banco banco, int cliente)
     {
@@ -146,6 +171,20 @@ public class SalesCars {
         System.out.print("Feedback OK\n");
     }
     
+    private static void agendarTesteDrive(Banco banco, int cliente)
+    {
+    	System.out.println("Bem vindo a marcação de Teste Drive");
+        Scanner reader = new Scanner(System.in);
+        String text;
+        
+        TesteDrive novo;
+
+        System.out.println("Escreva a data(DD-MM-YYYY) e o horário(HH:MM) do seu Teste Drive");
+        text = reader.nextLine();
+        
+        TesteDrive.create(banco,text, cliente);
+        System.out.print("TesteDrive marcado com sucesso\n");
+    }
     
     private static void cadastrarVeiculos(Banco banco)
     {
