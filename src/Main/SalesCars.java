@@ -90,7 +90,7 @@ public class SalesCars {
             System.out.println("2 - Cadastrar Postos");
             System.out.println("3 - Consultar Postos/Alterar Postos");
             System.out.println("4 - Consultar Veiculos/Alterar Veiculos");
-            System.out.println("5 - Alugar Veiculo");
+            System.out.println("5 - Vender Veiculo");
             System.out.println("6 - Historico de compras");
             System.out.println("7 - Escrever feedback");
             System.out.println("8 - Agendar Test Drive");
@@ -112,7 +112,7 @@ public class SalesCars {
                 	visualizarVeiculos(banco) ;
                     break;
                 case 5:
-                	
+                	venderVeiculos(banco) ;
                     break;
                 case 6:
                 	
@@ -120,7 +120,6 @@ public class SalesCars {
                 case 7:
                 	escreverFeedback(banco, client.getId());	
                     break;
-                    
                 case 8:
                 		
                     break;
@@ -197,6 +196,35 @@ public class SalesCars {
         } while (op > banco.getAutomoveis().size());
         if (op != 0) alterarAutomovel(banco, banco.getAutomoveis().get(op-1));
     }
+    
+    
+    private static void venderVeiculos(Banco banco)
+    {	
+    		System.out.println("Bem Vindo ao departamento de vendas de veículos da Sales Cars");
+    		System.out.println("Indique número do ID do Veiculo que você gostaria de alugar:");
+
+
+        int op;
+        Scanner reader = new Scanner(System.in);
+
+        for (int i = 0; i < banco.getAutomoveis().size(); i++)
+        {
+            System.out.println("Id: " + (i+1) + "-");
+            System.out.println("Modelo: " + banco.getAutomoveis().get(i).getModelo());
+            System.out.println("Tipo: " + banco.getAutomoveis().get(i).getTipo());
+            System.out.println("Numero de Portas: " + banco.getAutomoveis().get(i).getNumero_portas());
+            System.out.println("Possui Arcondicionado: " + banco.getAutomoveis().get(i).getArcondicionado());
+            System.out.println("");
+        }
+
+        do
+        {
+            //System.out.println("Para editar algum item digite seu id ou '0' (zero) para sair");
+            op = reader.nextInt();
+        } while (op > banco.getAutomoveis().size());
+        if (op != 0) System.out.println("O carro de ID " + op + " agora é seu!");
+    }
+
 
     public static void cadastrarPostos(Banco banco) {
         Scanner reader = new Scanner(System.in);
@@ -337,6 +365,7 @@ public class SalesCars {
         Automovel.edit(banco, obj);
     }
 
+/*
 public void cadastrarPlanosAluguel()
 {
 }
@@ -360,5 +389,6 @@ public void visualizarFeedbacks()
 public void visualizarAgendamento()
 {
 }
-	    
+*/	    
 }
+
