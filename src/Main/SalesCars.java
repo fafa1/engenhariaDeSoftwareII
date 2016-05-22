@@ -171,20 +171,7 @@ public class SalesCars {
         System.out.print("Feedback OK\n");
     }
     
-    private static void agendarTesteDrive(Banco banco, int cliente)
-    {
-    	System.out.println("Bem vindo a marcação de Teste Drive");
-        Scanner reader = new Scanner(System.in);
-        String text;
-        
-        TesteDrive novo;
-
-        System.out.println("Escreva a data(DD-MM-YYYY) e o horário(HH:MM) do seu Teste Drive");
-        text = reader.nextLine();
-        
-        TesteDrive.create(banco,text, cliente);
-        System.out.print("TesteDrive marcado com sucesso\n");
-    }
+    
     
     private static void cadastrarVeiculos(Banco banco)
     {
@@ -403,6 +390,19 @@ public class SalesCars {
         }
         Automovel.edit(banco, obj);
     }
+    
+    private static void agendarTesteDrive(Banco banco, int cliente)
+    {
+    	System.out.println("Bem vindo a marcação de Teste Drive");
+        Scanner reader = new Scanner(System.in);
+        String text;
+        System.out.println("Escreva a data(DD-MM-YYYY) e o horário(HH:MM) do seu Teste Drive");
+        text = reader.nextLine();
+        
+        TesteDrive.create(banco,text, cliente);
+        System.out.print("TesteDrive marcado com sucesso\n");
+    }
+    
 
 /*
 public void cadastrarPlanosAluguel()
