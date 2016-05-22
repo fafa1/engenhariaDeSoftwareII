@@ -388,10 +388,10 @@ public class SalesCars {
 
 	//Tag: Quando o numero de portas é -1, significa que o carro foi vendido
 	public static void removerAutomovel(Banco banco, Automovel obj){
-		byte exemplo = -1 ;
+		byte portas = -1 ;
 		obj.setModelo("");
 		obj.setTipo("");
-		obj.setNumero_portas(exemplo) ;
+		obj.setNumero_portas(portas) ;
 		obj.setArcondicionado("");
 		Automovel.edit(banco, obj);
 	}
