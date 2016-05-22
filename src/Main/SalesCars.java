@@ -395,11 +395,14 @@ public class SalesCars {
     {
     	System.out.println("Bem vindo a marcação de Teste Drive");
         Scanner reader = new Scanner(System.in);
-        String text;
-        System.out.println("Escreva a data(DD-MM-YYYY) e o horário(HH:MM) do seu Teste Drive");
-        text = reader.nextLine();
-        
-        TesteDrive.create(banco,text, cliente);
+        String data;
+        String horario;
+        System.out.println("Escreva a data (DD-MM-YYYY) do seu Teste Drive");
+        data = reader.nextLine() ;
+        System.out.println("Escreva o horário(HH:MM) do seu Teste Drive");
+        horario = reader.nextLine();
+        TesteDrive.create(banco,data, cliente);
+        TesteDrive.create(banco,horario, cliente);
         System.out.print("TesteDrive marcado com sucesso\n");
     }
     
